@@ -19,4 +19,5 @@ To receive data just do what I said above and the requests.get() method will ret
 ie Weather in Portland: 12.8°C, Partly cloudy
 
 UML Diagram:
+
 <img width="502" alt="image" src="https://github.com/aldenroy/CS361/assets/39741981/8128f330-11b0-4b9d-9c5b-aa9aeff9663b">
