@@ -1,6 +1,6 @@
 import requests
 api_key = 'd9eed6b80a1c4271974224250233110'
-location = "Portland"
+location = "New York"
 
 # Define the API endpoint and parameters
 endpoint = 'http://api.weatherapi.com/v1/current.json'

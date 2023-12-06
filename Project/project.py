@@ -1,4 +1,5 @@
 import requests
+import time
 print("Welcome to the CS361 weather app")
 print("You can enter 4 to exit, b to go back one, h to come back to the home page.")
 print("Enter 1 to continue")
@@ -35,30 +36,28 @@ while user_input != "4":
             #send home or back by input
         else:
             user_input = "3"
+            
+            with open("weather-service.txt", "w") as weather:
+                weather.write("run" + city)
+            time.sleep(5)
+            
+            with open("weather-service.txt", "r") as weather:
+                weather_content = weather.read()
+                
+            # with open("image-service.txt", "w") as image:
+            #     image.truncate(0)
+            #     image.write(str(prng_content))
+            # time.sleep(5)
+            
+            # with open("image-service.txt", "r") as file:
+            #     content = file.read()
+            
+            print(weather_content)
+            weather.close()
+            # image.close()
             # Replace 'YOUR_API_KEY' with your actual WeatherAPI.com API key
-            api_key = 'd9eed6b80a1c4271974224250233110'
-            location = str(city)
 
-            # Define the API endpoint and parameters
-            endpoint = 'http://api.weatherapi.com/v1/current.json'
-            params = {
-                'key': api_key,
-                'q': location,
-            }
 
-            # Make the API request
-            response = requests.get(endpoint, params=params)
-
-            if response.status_code == 200:
-                # Request was successful
-                data = response.json()
-                current_weather = data['current']
-                temperature = current_weather['temp_c']
-                condition = current_weather['condition']['text']
-                print(f"Weather in {location}: {temperature}°C, {condition}")
-            else:
-                # Request failed
-                print(f"Failed to retrieve weather data. Status code: {response.status_code}")
 
     elif user_input == "3":
         choice = input("Enter 1 to convert from C to F 2 to convert F to C: ")
